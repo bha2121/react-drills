@@ -1,18 +1,29 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      newArr: ['swag', 'bag', 'dag', 'sag', 'gag', 'rag']
+    }
+  }
+
+
+  arrToDisplay(){
+    let displayArr = this.state.newArr.map((el)=>{
+      return <h2 key={el}>{el}</h2>
+
+    })
+    return displayArr
+
+  }
+
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.arrToDisplay()}
       </div>
     );
   }
